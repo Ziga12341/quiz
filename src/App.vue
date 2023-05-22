@@ -1,9 +1,10 @@
 <template>
     <div class="ctr">
-      <questions v-if="questionAnswered < questions.length"
-                 :questions="questions"
-                 :questionsAnswered="questionAnswered"
-                 @question-answered="questionAnswered"
+      <questions
+               v-if="questionsAnswered < questions.length"
+               :questions="questions"
+               :questionsAnswered="questionsAnswered"
+               @question-answered="questionAnswered"
       />
       <result v-else />
       <button type="button" class="reset-btn">Reset</button>
@@ -22,7 +23,7 @@ export default {
     },
     data() {
         return {
-            questionAnswered: 0,
+            questionsAnswered: 0,
             totalCorrect: 0,
             questions: [
                 {
@@ -106,7 +107,7 @@ export default {
             if(is_correct) {
                 this.totalCorrect++;
             }
-            this.questionAnswered++;
+            this.questionsAnswered++;
 
         },
     },
